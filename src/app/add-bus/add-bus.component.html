@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="card shadow">
+      <div class="card-body">
+        <h2 class="text-center mb-4">Ajouter Bus :</h2>
+
+        <form>
+          <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Bus</label>
+            <input type="number" [(ngModel)]="newBus.idBus" name="idBus" class="form-control">
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>TypeBus</label>
+            <input type="text" [(ngModel)]="newBus.typeBus" name="typeBus" class="form-control">
+          </div>
+          <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>price</label>
+            <input type="number" [(ngModel)]="newBus.price" name="price" class="form-control">
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date création</label>
+            <input type="date" [(ngModel)]="newBus.dateMisenService" name="dateMisenService" class="form-control">
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Couleur</label>
+            <input type="text" [(ngModel)]="newBus.couleur" name="couleur" class="form-control">
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Capacity</label>
+            <input type="number" [(ngModel)]="newBus.capacity" name="capacity" class="form-control">
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Marque</label>
+            <select class="form-control form-control-lg" id="idMarque" name="idMarque" [(ngModel)]="newIdMar">
+              <option *ngFor="let marques of marque" [value]="marques.idMarque">{{marques.nomMarque}}</option>
+            </select>
+          </div>
+  
+          <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image:</label>
+            <input type="file" (change)="onImageUpload($event)" name="logo" class="form-control">
+          </div>
+          <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="imagePath" class="card-img-top img-fluid rounded-start" style="width: 500px; height: 300px" />
+          </div>
+  
+          <div class="mt-2">
+            <button type="submit" (click)="ajouterBus()" class="btn btn-success">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

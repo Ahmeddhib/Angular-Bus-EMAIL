@@ -1,0 +1,53 @@
+<div class="container">
+    <div>
+        <h2>Modifier Bus :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Bus</label>
+            <input readonly type="text" [(ngModel)]="currentBus.idBus" name="idBus" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>TypeBus</label>
+            <input type="text" [(ngModel)]="currentBus.typeBus" name="typeBus" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Price</label>
+            <input type="number" [(ngModel)]="currentBus.price" name="price" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date création</label>
+            <input type="date" [ngModel]="currentBus.dateMisenService | date: 'yyyy-MM-dd'"
+                (ngModelChange)=" currentBus.dateMisenService= $event" name="dateMisenService" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Couleur</label>
+            <input type="text" [(ngModel)]="currentBus.couleur" name="couleur" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Capacity</label>
+            <input type="number" [(ngModel)]="currentBus.capacity" name="capacity" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <select class="form-control form-control-lg" id="idMarque" name="idMarque" [(ngModel)]="updatedMarId">
+            <option *ngFor="let marques of marque" [value]="marques.idMarque" >
+            {{marques.nomMarque}}
+            </option>
+            </select>
+            </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+                <label class="mb-2">Image :</label>
+                <input type="file" (change)="onImageUpload($event)" class="form-control">
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+                <img [src]="myImage" class="card-img-top img-fluid rounded-start"
+                style="width: 500px; height: 300px" />
+        </div>
+        <div class="mt-2">
+
+            <button type="submit" (click)="updateBus()" class="btn btn-success">Modifer</button>
+
+        </div>
+    </form>
+
+</div>
